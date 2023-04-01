@@ -17,7 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from pirates.views.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', ListaTesouro.as_view(), name='lista_tesouros'),
+    path('inserir_tesouro/', SalvarTesouro.as_view(), name='inserir_tesouro'),
+    path('editar_tesouro/<int:id>/', SalvarTesouro.as_view(), name='editar_tesouro'),
+    path('deletar_tesouro/<int:id>/', RemoverTesouro.as_view(), name='deletar_tesouro'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,11 +1,18 @@
 html, body {
   height: 100%;
 }
-tbody a img{
+tbody a img, tbody button img {
   height: 30px;
   cursor: pointer;
 }
-form{
+
+tbody button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+form:not(tbody form){
   background-color: rgba(255, 255, 255, 0.5);
   width: 70%;
   margin-top: 5px;
@@ -94,13 +101,13 @@ label{
   height: 30px;
   font-size: 14pt;
 }
-button{
+button:not(tbody button){
   font-size: 15pt;
   padding: 10px 15px;
   display: block;
   margin: 0 auto;
 }
-.login input[type="submit"],button{
+.login input[type="submit"],button:not(tbody button){
   background-color: lightblue;
   color: #2a2b77;
   margin-bottom: 10px;
